@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.10.8 on win32)" generated="20231011 20:36:56.875" rpa="false" schemaversion="4">
+<suite id="s1" name="Test Robot" source="d:\work\SPSS\Lab-Test\robotframework\test_robot.robot">
+<test id="s1-t1" line="36">
+<status status="FAIL" starttime="20231011 20:36:57.232" endtime="20231011 20:36:57.235">Test cannot be empty.</status>
+</test>
+<status status="FAIL" starttime="20231011 20:36:56.894" endtime="20231011 20:36:57.238"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Test Robot">Test Robot</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
