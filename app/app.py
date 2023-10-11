@@ -20,6 +20,15 @@ def is_prime(number):
     else:
         return 'False'
 
+'''
+create something function return string
+'''
+@app.route('/something', methods=['GET'])
+def something():
+    return 'something'
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

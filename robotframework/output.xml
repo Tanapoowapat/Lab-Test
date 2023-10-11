@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.10.8 on win32)" generated="20231011 20:40:52.297" rpa="false" schemaversion="4">
+<suite id="s1" name="Test Robot" source="D:\work\SPSS\Lab-Test\robotframework\test_robot.robot">
+<test id="s1-t1" name="Test HelloWorld JSON" line="34">
+<kw name="Get HelloWorld JSON">
+<var>${resp}</var>
+<kw name="Get" library="requests">
+<var>${resp}</var>
+<arg>http://127.0.0.1:5001/</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20231011 20:40:52.434" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231011 20:40:52.426" endtime="20231011 20:40:52.434"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${resp.status_code}</arg>
+<arg>${200}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20231011 20:40:52.435" endtime="20231011 20:40:52.436"/>
+</kw>
+<msg timestamp="20231011 20:40:52.436" level="INFO">${resp} = {'message': 'Hello, World!'}</msg>
+<status status="PASS" starttime="20231011 20:40:52.426" endtime="20231011 20:40:52.436"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${resp['message']}</arg>
+<arg>Hello, World!</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20231011 20:40:52.436" endtime="20231011 20:40:52.437"/>
+</kw>
+<status status="PASS" starttime="20231011 20:40:52.425" endtime="20231011 20:40:52.437"/>
+</test>
+<test id="s1-t2" name="Test Is_prime" line="37">
+<kw name="Get Is_prime">
+<var>${resp}</var>
+<arg>${17}</arg>
+<kw name="Get" library="requests">
+<var>${resp}</var>
+<arg>http://127.0.0.1:5001/is_prime/${num}</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20231011 20:40:52.443" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231011 20:40:52.438" endtime="20231011 20:40:52.443"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${resp.status_code}</arg>
+<arg>${200}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20231011 20:40:52.443" endtime="20231011 20:40:52.444"/>
+</kw>
+<msg timestamp="20231011 20:40:52.445" level="INFO">${resp} = True</msg>
+<status status="PASS" starttime="20231011 20:40:52.438" endtime="20231011 20:40:52.445"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${resp}</arg>
+<arg>True</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20231011 20:40:52.445" level="INFO">Argument types are:
+&lt;class 'bytes'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20231011 20:40:52.445" endtime="20231011 20:40:52.445"/>
+</kw>
+<status status="PASS" starttime="20231011 20:40:52.437" endtime="20231011 20:40:52.446"/>
+</test>
+<test id="s1-t3" name="Test is_not_prime" line="41">
+<kw name="Get Is_prime">
+<var>${resp}</var>
+<arg>${36}</arg>
+<kw name="Get" library="requests">
+<var>${resp}</var>
+<arg>http://127.0.0.1:5001/is_prime/${num}</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20231011 20:40:52.452" level="INFO">${resp} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231011 20:40:52.447" endtime="20231011 20:40:52.452"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${resp.status_code}</arg>
+<arg>${200}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20231011 20:40:52.452" endtime="20231011 20:40:52.453"/>
+</kw>
+<msg timestamp="20231011 20:40:52.453" level="INFO">${resp} = False</msg>
+<status status="PASS" starttime="20231011 20:40:52.446" endtime="20231011 20:40:52.453"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${resp}</arg>
+<arg>False</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<msg timestamp="20231011 20:40:52.454" level="INFO">Argument types are:
+&lt;class 'bytes'&gt;
+&lt;class 'str'&gt;</msg>
+<status status="PASS" starttime="20231011 20:40:52.454" endtime="20231011 20:40:52.454"/>
+</kw>
+<status status="PASS" starttime="20231011 20:40:52.446" endtime="20231011 20:40:52.455"/>
+</test>
+<test id="s1-t4" name="Test wrong_port_url" line="45">
+<kw name="Get worong_port_url">
+<var>${resp}</var>
+<kw name="Get" library="requests">
+<var>${resp}</var>
+<arg>http://127.0.0.1:5002/</arg>
+<doc>Sends a GET request.</doc>
+<msg timestamp="20231011 20:40:54.480" level="FAIL">ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: / (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000217E516CF10&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</msg>
+<status status="FAIL" starttime="20231011 20:40:52.456" endtime="20231011 20:40:54.561"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${resp.status_code}</arg>
+<arg>${200}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="NOT RUN" starttime="20231011 20:40:54.562" endtime="20231011 20:40:54.562"/>
+</kw>
+<status status="FAIL" starttime="20231011 20:40:52.456" endtime="20231011 20:40:54.562"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${resp}</arg>
+<arg>Not Found</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="NOT RUN" starttime="20231011 20:40:54.562" endtime="20231011 20:40:54.562"/>
+</kw>
+<status status="FAIL" starttime="20231011 20:40:52.455" endtime="20231011 20:40:54.562">ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=5002): Max retries exceeded with url: / (Caused by NewConnectionError('&lt;urllib3.connection.HTTPConnection object at 0x00000217E516CF10&gt;: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))</status>
+</test>
+<status status="FAIL" starttime="20231011 20:40:52.299" endtime="20231011 20:40:54.563"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="3" fail="1" skip="0" id="s1" name="Test Robot">Test Robot</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
